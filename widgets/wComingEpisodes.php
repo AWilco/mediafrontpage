@@ -230,7 +230,14 @@ function displayComingSoon () {
 
 	$html = getComingSoon();
 	$body = stripBody($html);
-	$body = stripInnerWrapper($body);
+    
+    libxml_use_internal_errors(true);
+    $doc = new DOMDocument();
+    $doc->LoadHTML($body);
+    $inner = $doc->saveXML($doc->GetElementById('insideContent'));
+    
+    echo $inner;
+	//$body = stripInnerWrapper($body);
 	//$body = changeLinks($body);
 	
 	if(!empty($_GET["style"]) && (($_GET["style"] == "s") || ($_GET["style"] == "m"))) {
@@ -249,10 +256,11 @@ function displayComingSoon () {
 	$body = str_replace("href=\"/images/", "href=\"".$sickbeardurl."images/", $body);
 	$body = str_replace("src=\"images/", "src=\"".$sickbeardurl."images/", $body);
 	$body = str_replace("href=\"images/", "href=\"".$sickbeardurl."images/", $body);
-	echo $body;
+	//echo $body;
 }
 
 if(!empty($_GET["style"]) && (($_GET["style"] == "s") || ($_GET["style"] == "w"))) {
+
 	include_once "../config.php";
 	displayComingSoon();
 }

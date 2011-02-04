@@ -52,7 +52,6 @@
 		/* float: left !important; */
 		padding: 3px 0px 4px !important;
 		font-size: 16px !important;
-		text-decoration: underline;
 }
 
 	/* right align the icons for the show */
@@ -80,8 +79,9 @@
 }
 
 	.bannerThumb {
-		height: 70px !important;
-		width: 354px !important;
+		/*height: 70px !important;
+		width: 354px !important;  */
+        width: 80%;
 		padding-bottom: 2px;
 }
 
@@ -135,7 +135,7 @@
 }
 
 	/* not sure what this is for, pulled it from comingepisodes.css */
-	#wComingEpisodes h1, #wComingEpisodes iframe {
+ #wComingEpisodes iframe {
 		display     : none !important;
 		visibility  : hidden;
 		height      : 1px;
